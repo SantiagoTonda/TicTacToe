@@ -55,7 +55,7 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
     for (let index of winCombos[gameWon.index]) {
         document.getElementById(index).style.backgroundColor =
-            gameWon.player == humanPlayer ? "blue" : "red";
+            gameWon.player == humanPlayer ? "green" : "red";
     }
     for (let i = 0; i < cells.length; i++) {
         cells[i].removeEventListener('click', turnClick, false);
@@ -78,6 +78,7 @@ function emptySquares() {
    Cambiar color de los distintos players
    Centrar la tabla de una mejor forma
    La clase cell es necesaria?
+   Solucionar error cuando gano en dificultad media?
 
 EASY MODE
 
@@ -87,14 +88,14 @@ function bestSpot() {
 */
 
 function bestSpot() {
-    return minimax(originBoard, aiPlayer).index;
+    return intermediate(originBoard, aiPlayer).index;
 }
 
 function checkTie() {
     if (!checkWin(originBoard, humanPlayer)) {
         if (emptySquares().length == 0) {
             for (let i = 0; i < cells.length; i++) {
-                cells[i].style.backgroundColor = "green";
+                cells[i].style.backgroundColor = "blue";
                 cells[i].removeEventListener('click', turnClick, false);
             }
             declareWinner("It's a tie!")
@@ -104,9 +105,9 @@ function checkTie() {
     }
 }
 
-function minimax(newBoard, player) {
+function intermediate(newBoard, player) {
     let availableSpots = emptySquares(newBoard);
-    if (checkWin(newBoard, humanPlayer)) {  // Change "humanPlayer" to "player" to make a intermediate difficulty mode
+    if (checkWin(newBoard, player)) {
         return { score: -10 };
     } else if (checkWin(newBoard, aiPlayer)) {
         return { score: 20 };
@@ -119,10 +120,55 @@ function minimax(newBoard, player) {
         move.index = newBoard[availableSpots[i]];
         newBoard[availableSpots[i]] = player;
         if (player == aiPlayer) {
-            let result = minimax(newBoard, humanPlayer);
+            let result = intermediate(newBoard, humanPlayer);
             move.score = result.score;
         } else {
-            let result = minimax(newBoard, aiPlayer);
+            let result = intermediate(newBoard, aiPlayer);
+            move.score = result.score;
+        }
+        newBoard[availableSpots[i]] = move.index;
+        moves.push(move);
+    }
+    let bestMove;
+    if (player === aiPlayer) {
+        let bestScore = -10000;
+        for (let i = 0; i < moves.length; i++) {
+            if (moves[i].score > bestScore) {
+                bestScore = moves[i].score;
+                bestMove = i;
+            }
+        }
+    } else {
+        let bestScore = 10000;
+        for (let i = 0; i < moves.length; i++) {
+            if (moves[i].score < bestScore) {
+                bestScore = moves[i].score;
+                bestMove = i;
+            }
+        }
+    }
+    return moves[bestMove];
+}
+
+function hard(newBoard, player) {
+    let availableSpots = emptySquares(newBoard);
+    if (checkWin(newBoard, humanPlayer)) {
+        return { score: -10 };
+    } else if (checkWin(newBoard, aiPlayer)) {
+        return { score: 20 };
+    } else if (availableSpots.length === 0) {
+        return { score: 0 };
+    }
+    let moves = [];
+    for (let i = 0; i < availableSpots.length; i++) {
+        let move = {};
+        move.index = newBoard[availableSpots[i]];
+        newBoard[availableSpots[i]] = player;
+        if (player == aiPlayer) {
+            let result = hard(newBoard, humanPlayer);
+            move.score = result.score;
+        } else {
+            let result = hard(newBoard, aiPlayer);
             move.score = result.score;
         }
         newBoard[availableSpots[i]] = move.index;
