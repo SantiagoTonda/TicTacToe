@@ -72,7 +72,14 @@ function emptySquares() {
     return originBoard.filter(s => typeof s == 'number');
 }
 
-/* EASY MODE
+/* Hacer función para cambiar de dificultad
+   Hacer función para cambiar quién empieza
+   Hacer función para que la IA no siga jugando si gané
+   Cambiar color de los distintos players
+   Centrar la tabla de una mejor forma
+   La clase cell es necesaria?
+
+EASY MODE
 
 function bestSpot() {
     return emptySquares()[0];
@@ -84,20 +91,22 @@ function bestSpot() {
 }
 
 function checkTie() {
-    if (emptySquares().length == 0) {
-        for (let i = 0; i < cells.length; i++) {
-            cells[i].style.backgroundColor = "green";
-            cells[i].removeEventListener('click', turnClick, false);
+    if (!checkWin(originBoard, humanPlayer)) {
+        if (emptySquares().length == 0) {
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].style.backgroundColor = "green";
+                cells[i].removeEventListener('click', turnClick, false);
+            }
+            declareWinner("It's a tie!")
+            return true;
         }
-        declareWinner("It's a tie!")
-        return true;
+        return false;
     }
-    return false;
 }
 
 function minimax(newBoard, player) {
     let availableSpots = emptySquares(newBoard);
-    if (checkWin(newBoard, player)) {
+    if (checkWin(newBoard, humanPlayer)) {  // Change "humanPlayer" to "player" to make a intermediate difficulty mode
         return { score: -10 };
     } else if (checkWin(newBoard, aiPlayer)) {
         return { score: 20 };
