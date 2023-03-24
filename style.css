@@ -5,16 +5,17 @@ td {
     text-align: center;
     vertical-align: middle;
     font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 70px;
+    font-size: 64px;
     cursor: pointer;
+}
+
+td:active {
+    cursor: url(./icon.jpeg), grab;
 }
 
 table {
     border-collapse: collapse;
-    position: absolute;
-    left: 50%;
-    margin-left: -157px;
-    top: 100px;
+    margin: 20px auto;
 }
 
 table tr:first-child td {

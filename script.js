@@ -95,7 +95,7 @@ function checkTie() {
     if (!checkWin(originBoard, humanPlayer)) {
         if (emptySquares().length == 0) {
             for (let i = 0; i < cells.length; i++) {
-                cells[i].style.backgroundColor = "blue";
+                cells[i].style.backgroundColor = "yellow";
                 cells[i].removeEventListener('click', turnClick, false);
             }
             declareWinner("It's a tie!")
