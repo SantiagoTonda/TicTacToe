@@ -76,9 +76,8 @@ function emptySquares() {
    Hacer función para cambiar quién empieza
    Hacer función para que la IA no siga jugando si gané
    Cambiar color de los distintos players
-   Centrar la tabla de una mejor forma
    La clase cell es necesaria?
-   Solucionar error cuando gano en dificultad media?
+   Solucionar error en consola cuando gano en dificultad media?
 
 EASY MODE
 

@@ -1,3 +1,7 @@
+html {
+    cursor: url(https://cdn.custom-cursor.com/db/14380/32/color-cherry-cursor.png), pointer; 
+}
+
 td {
     border: 2px solid #333;
     height: 100px;
@@ -6,15 +10,19 @@ td {
     vertical-align: middle;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 64px;
-    cursor: pointer;
+    cursor: url(https://cdn.custom-cursor.com/db/14379/32/color-cherry-pointer.png), pointer;
+}
+
+label, input, button {
+    cursor: url(https://cdn.custom-cursor.com/db/14567/32/color-chilli-red-pointer.png), pointer !important;
 }
 
 td:active {
-    cursor: url(./icon.jpeg), grab;
+    cursor: url(https://cdn.discordapp.com/attachments/762875738327351297/1089015811596894283/color-cherry-pointer-big.png), pointer !important;
 }
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
     margin: 20px auto;
 }
 
@@ -36,12 +44,14 @@ table tr td:last-child {
 
 .endgame {
     display: none;
-    width: 200px;
-    top: 170px;
-    background-color: rgba(205, 133, 63, 0.8);
+    width: 308px;
+    height: 310px;
+    top: 106px;
+    background-color: rgba(250, 100, 0, 0.6);
     position: absolute;
-    left: 50%;
-    margin-left: -100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
@@ -51,8 +61,11 @@ table tr td:last-child {
 }
 
 .difficulty {
-    border: 1px solid black;
-    border-radius: 5px;
+    width: 320px;
+    margin: 10px auto;
+    background-color: rgba(250, 100, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
