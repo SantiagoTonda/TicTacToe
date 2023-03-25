@@ -1,5 +1,10 @@
 html {
-    cursor: url(https://cdn.custom-cursor.com/db/14380/32/color-cherry-cursor.png), pointer; 
+    cursor: url(https://cdn.custom-cursor.com/db/14380/32/color-cherry-cursor.png), pointer;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder !important;
 }
 
 td {
@@ -9,7 +14,8 @@ td {
     text-align: center;
     vertical-align: middle;
     font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 64px;
+    font-weight: 100;
+    font-size: 60px;
     cursor: url(https://cdn.custom-cursor.com/db/14379/32/color-cherry-pointer.png), pointer;
 }
 
@@ -70,4 +76,12 @@ table tr td:last-child {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.about {
+    width: 320px;
+    margin: 10px auto;
+    background-color: rgba(250, 100, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 10px;
 }

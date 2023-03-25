@@ -12,8 +12,8 @@
 <body>
     <div class="difficulty">
         <p class="mb-0">Choose your game mode:</p>
-        <label>INTERMEDIATE<input class="mx-1" type="radio" value="intermediate" name="difficulty" checked></label>
-        <label>HARD<input class="mx-1" type="radio" value="hard" name="difficulty"></label>
+        <label class="text-success text-opacity-75">INTERMEDIATE<input class="mx-1" type="radio" value="intermediate" name="difficulty" checked></label>
+        <label class="text-danger">HARD<input class="mx-1" type="radio" value="hard" name="difficulty"></label>
     </div>
     <table>
         <tr>
@@ -36,8 +36,9 @@
         <div class="text mb-4"></div>
         <button onclick="startGame()">Play again!</button>
     </div>
-    <div class="d-flex justify-content-center">
-        <button onclick="startGame()">Restart game</button>
+    <div class="buttons d-flex flex-column align-items-center gap-2">
+        <button onclick="startGame()">Restart game</button> 
+        <a href="./about.html"><button>About</button></a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
