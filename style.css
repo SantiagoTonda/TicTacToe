@@ -5,6 +5,8 @@ html {
 body {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder !important;
+    background-image: linear-gradient(rgba(250, 100, 0, 0.6), #fff);
+    background-repeat: no-repeat;
 }
 
 td {
