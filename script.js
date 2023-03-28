@@ -73,7 +73,7 @@ function emptySquares() {
     return originBoard.filter(s => typeof s == 'number');
 }
 
-/* 
+/*
    Hacer función para cambiar quién empieza
    Hacer función para que la IA no siga jugando si gané (porque sino cuando juego en modo easy podemos ganar los dos 11111111)
    Cambiar color de los distintos players
@@ -81,7 +81,7 @@ function emptySquares() {
    Agregar background image
    La clase cell es necesaria?
    Solucionar error en consola cuando gano en dificultad media y fácil?
-   Ver cómo hacer para que funcione bien en celu
+   Ver cómo hacer para que funcione bien en celu (tarda en hacer el primer movimiento en dificultad intermedia o difícil)
 */
 
 function bestSpot() {
