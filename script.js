@@ -61,7 +61,7 @@ function gameOver(gameWon) {
     for (let i = 0; i < cells.length; i++) {
         cells[i].removeEventListener('click', turnClick, false);
     }
-    declareWinner(gameWon.player == humanPlayer ? "You win! :)" : "You lose! :(");
+    declareWinner(gameWon.player == humanPlayer ? "You win! 🤗" : "You lose! 🙁");
 }
 
 function declareWinner(who) {
@@ -82,6 +82,7 @@ function emptySquares() {
    La clase cell es necesaria?
    Solucionar error en consola cuando gano en dificultad media y fácil?
    Ver cómo hacer para que funcione bien en celu (tarda en hacer el primer movimiento en dificultad intermedia o difícil)
+   Por qué puedo pasar en medio de una partida de intermedio a hard pero no de easy a intermedio???
 */
 
 function bestSpot() {
@@ -102,7 +103,7 @@ function checkTie() {
                 cells[i].style.backgroundColor = "yellow";
                 cells[i].removeEventListener('click', turnClick, false);
             }
-            declareWinner("It's a tie!")
+            declareWinner("It's a tie! 😐")
             return true;
         }
         return false;
