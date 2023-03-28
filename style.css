@@ -19,6 +19,12 @@ td {
     cursor: url(https://cdn.custom-cursor.com/db/14379/32/color-cherry-pointer.png), pointer;
 }
 
+@media (max-width: 425px) {
+    td {
+        font-weight: 900;
+    }
+}
+
 label, input, button {
     cursor: url(https://cdn.custom-cursor.com/db/14567/32/color-chilli-red-pointer.png), pointer !important;
 }
